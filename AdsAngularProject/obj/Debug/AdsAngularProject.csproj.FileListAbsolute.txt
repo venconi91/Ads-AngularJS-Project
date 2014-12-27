@@ -1,0 +1,5 @@
+C:\Users\Vencislav\Desktop\Ads - angular  project\AdsAngularProject\AdsAngularProject\bin\AdsAngularProject.dll
+C:\Users\Vencislav\Desktop\Ads - angular  project\AdsAngularProject\AdsAngularProject\bin\AdsAngularProject.pdb
+C:\Users\Vencislav\Desktop\Ads - angular  project\AdsAngularProject\AdsAngularProject\obj\Debug\AdsAngularProject.csprojResolveAssemblyReference.cache
+C:\Users\Vencislav\Desktop\Ads - angular  project\AdsAngularProject\AdsAngularProject\obj\Debug\AdsAngularProject.dll
+C:\Users\Vencislav\Desktop\Ads - angular  project\AdsAngularProject\AdsAngularProject\obj\Debug\AdsAngularProject.pdb
