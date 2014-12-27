@@ -1,0 +1,7 @@
+1. create structure
+2. create home view
+3. create login view and controller
+4. create register view and controller
+5. list user ads
+6. edit delite ads
+7. changing profile
