@@ -13,11 +13,11 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
 		controller: 'AdDetailsController'
 	});
 	$routeProvider.when('/login', {
-	    //templateUrl: 'templates/login.html',
+	    templateUrl: 'templates/login.html',
 	    controller: 'LoginController'
 	});
 	$routeProvider.when('/register', {
-	    //templateUrl: 'templates/register.html',
+	    templateUrl: 'templates/register.html',
 	    controller: 'RegisterController'
 	});
 	//$locationProvider.html5Mode(true);
