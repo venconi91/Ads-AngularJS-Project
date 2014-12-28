@@ -1,14 +1,77 @@
 <div class="container">
-	<h1>User ads</h1>
-	<ul>
-		<li ng-repeat="ad in data.ads" class="well">
-			<a href="ads/{{ad.id}}">
-				<h1>{{ad.title}}</h1>
-				<div><strong>Text:</strong> {{ad.text}}</div>
-				<div><strong>Town:</strong> {{ad.townName}}</div>
-				<div><strong>Category:</strong> {{ad.categoryName}}</div>
-				<div><strong>Status:</strong> {{ad.status}}</div>
-			</a>
-		</li>
-	</ul>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="jumbotron">
+                <ul>
+                    <li ng-repeat="ad in allAds.ads | filter: {'categoryId' : currentCategory} | filter: {'townId' : currentTown}" class="well">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3>{{ad.title}}</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="pull-right">{{ad.date | date: 'd-MMM-yyyy'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img ng-src="{{ad.imageDataUrl}}" src="http://img2.wikia.nocookie.net/__cb20130511180903/legendmarielu/images/b/b4/No_image_available.jpg" class="imageFullSize">
+                            </div>
+                            <div class="col-md-8">
+                                <div>
+                                    {{ad.text}}
+                                </div>
+                                <div>
+                                    <div><strong>Name: {{ad.ownerName}}</strong></div>
+                                    <div><strong>Email: {{ad.ownerEmail}}</strong></div>
+                                    <div><strong>Phone: {{ad.ownerPhone}}</strong></div>
+                                    <div><strong>TownID: {{ad.townId}}</strong></div>
+                                    <div><strong>CategoryID: {{ad.categoryId}}</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Category</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                <a href ng-click="categoryClicked('')">All Categories</a>
+                            </li>
+                            <li ng-repeat="category in categories">
+                                <a href ng-click="categoryClicked(category.id)">{{category.name}} -> {{category.id}}</a>
+                            </li>
+                        </ul>
+                        <p>{{currentCategory}}</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">Towns</h3>
+                    </div>
+                    <div class="panel-body">
+                        <!---->
+                        <ul>
+                            <li>
+                                <a href ng-click="townClicked('')">All Towns</a>
+                            </li>
+                            <li ng-repeat="town in towns">
+                                <a href ng-click="townClicked(town.id)">{{town.name}} -> {{town.id}}</a>
+                            </li>
+                        </ul>
+                        <p>{{currentTown}}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </div>

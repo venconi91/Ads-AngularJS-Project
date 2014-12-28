@@ -8,3 +8,8 @@
 .even_row {
 	background: red;
 }
+.imageFullSize {
+    width: 100%;
+    height: 100%;
+
+}
