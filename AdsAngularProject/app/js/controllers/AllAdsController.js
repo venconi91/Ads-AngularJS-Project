@@ -1,4 +1,5 @@
-app.controller('AllAdsController', function ($scope, $log, mainData) {
+app.controller('AllAdsController', function ($scope, $log,$location, mainData, authentication) {
+
     mainData.getAllAds(function (res) {
         $scope.allAds = res;
     })
@@ -17,4 +18,14 @@ app.controller('AllAdsController', function ($scope, $log, mainData) {
     $scope.townClicked = function (townId) {
         $scope.currentTown = townId;
     }
+
+    //if (authentication.isAuthenticated) {
+    //    console.log(authentication.isAuthenticated)
+    //    $scope.showLoginRegisterNav = false;
+    //    $scope.showUserNav = true;
+    //}
+    //else {
+    //    $scope.showLoginRegisterNav = true;
+    //    $scope.showUserNav = false;
+    //}
 });

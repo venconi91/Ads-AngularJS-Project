@@ -63,6 +63,7 @@
     <Content Include="app\js\app.js" />
     <Content Include="app\js\controllers\AdDetailsController.js" />
     <Content Include="app\js\controllers\AllAdsController.js" />
+    <Content Include="app\js\controllers\IndexPageController.js" />
     <Content Include="app\js\controllers\LoginController.js" />
     <Content Include="app\js\controllers\NewAdController.js" />
     <Content Include="app\js\controllers\RegisterController.js" />
@@ -341,6 +342,7 @@
     <Content Include="app\templates\loginRegisterMenu.html" />
     <Content Include="app\templates\newAd.html" />
     <Content Include="app\templates\register.html" />
+    <Content Include="app\templates\userNavigation.html" />
     <Content Include="scripts\web-server.js" />
     <Content Include="Web.config" />
   </ItemGroup>
