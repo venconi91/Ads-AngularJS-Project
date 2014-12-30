@@ -10,15 +10,11 @@
     }
 
     function register(success, user) {
-        
         $http({
             method: 'POST',
             url: 'http://softuni-ads.azurewebsites.net/api/user/register',
             data: toJSON(user), // s polzwane na var userInJson = angular.toJson(user); ba4ka
-        }).success(function (data) {
-            isAuthenticated = true;
-            
-            registerResponse = data;
+        }).success(function (data) {            
             success(data)
         }).error(function (data) {
             $log.warn(data)
@@ -32,9 +28,7 @@
             url: 'http://softuni-ads.azurewebsites.net/api/user/login',
             data: toJSON(loginData),
         }).success(function (data) {
-            isAuthenticated = true;
-            loginResponse = data;
-            console.log(data);
+            sessionStorage.setItem('access_token', data.access_token)
             success(data)
         }).error(function (data) {
             $log.warn(data)

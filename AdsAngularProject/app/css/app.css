@@ -13,3 +13,12 @@
     height: 100%;
 
 }
+textarea {
+    width: 100%;
+}
+#pictureBackground {
+    background-color: #EBB796;
+}
+input.ng-invalid.ng-dirty, textarea.ng-invalid.ng-dirty {
+    background-color: red;
+}

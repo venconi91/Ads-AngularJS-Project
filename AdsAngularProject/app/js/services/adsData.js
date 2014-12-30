@@ -2,8 +2,11 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 
     var token = authentication.getToken.access_token;
 
-	$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-	
+	//$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+    function toJSON(obj) {
+        return angular.toJson(obj);
+    }
+
 	var resource = $resource(
 		'http://softuni-ads.azurewebsites.net/api/user/ads/:id', 
 		{id: '@id'}, 
@@ -13,11 +16,16 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 	});
 
 	function getAllAds() {
+        console.log(token)
+	    console.log("tuka sym")
 		return resource.get();
 	}
 
 	function createNewAd(ad) {
-		return resource.save(ad);
+	    var adInJsonFormat = toJSON(ad)
+	    console.log($http.defaults.headers.common['Authorization']);
+        console.log('predi zaqvkata')
+	    return resource.save(adInJsonFormat);
 	}
 
 	function getAdById(id) {
