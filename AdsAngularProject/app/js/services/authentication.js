@@ -34,6 +34,7 @@
         }).success(function (data) {
             isAuthenticated = true;
             loginResponse = data;
+            console.log(data);
             success(data)
         }).error(function (data) {
             $log.warn(data)

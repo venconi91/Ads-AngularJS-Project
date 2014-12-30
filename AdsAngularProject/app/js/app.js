@@ -30,8 +30,8 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
 	    //controller: 'RegisterController'
 	});
 	$routeProvider.when('/user/ads', {
-	    //templateUrl: 'templates/register.html',
-	    //controller: 'RegisterController'
+	    templateUrl: 'templates/allUserAds.html',
+	    controller: 'AllUserAdsController'
 	});
 	$routeProvider.when('/user/ads/delete/:id', {
 	    //templateUrl: 'templates/register.html',

@@ -19,13 +19,4 @@ app.controller('AllAdsController', function ($scope, $log,$location, mainData, a
         $scope.currentTown = townId;
     }
 
-    //if (authentication.isAuthenticated) {
-    //    console.log(authentication.isAuthenticated)
-    //    $scope.showLoginRegisterNav = false;
-    //    $scope.showUserNav = true;
-    //}
-    //else {
-    //    $scope.showLoginRegisterNav = true;
-    //    $scope.showUserNav = false;
-    //}
 });

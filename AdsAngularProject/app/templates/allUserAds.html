@@ -1,0 +1,66 @@
+﻿<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div>
+                <div class="panel panel-primary">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">My Ads</h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>
+                                <a href="#" >All</a>
+                            </li>
+                            <li>
+                                <a href="#">Published</a>
+                            </li>
+                            <li>
+                                <a href="#">Waiting Approval</a>
+                            </li>
+                            <li>
+                                <a href="#">Inactive</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-md-9">
+            <div class="jumbotron">
+                <ul>
+                    <li ng-repeat="ad in allAds.ads" class="well">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <h3>{{ad.title}}</h3>
+                            </div>
+                            <div class="col-md-3">
+                                <span class="pull-right">{{ad.date | date: 'd-MMM-yyyy'}}</span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-4">
+                                <img ng-src="{{ad.imageDataUrl}}" src="http://img2.wikia.nocookie.net/__cb20130511180903/legendmarielu/images/b/b4/No_image_available.jpg" class="imageFullSize">
+                            </div>
+                            <div class="col-md-8">
+                                <div>
+                                    {{ad.text}}
+                                </div>
+                                <div>
+                                    <div><strong>Name: {{ad.ownerName}}</strong></div>
+                                    <div><strong>Email: {{ad.ownerEmail}}</strong></div>
+                                    <div><strong>Phone: {{ad.ownerPhone}}</strong></div>
+                                    <div><strong>TownID: {{ad.townId}}</strong></div>
+                                    <div><strong>CategoryID: {{ad.categoryId}}</strong></div>
+                                </div>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        
+    </div>
+
+</div>
