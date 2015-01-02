@@ -12,7 +12,8 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 		{id: '@id'}, 
 		{
 		    update: { method: 'PUT' },
-		    deactivateAd: { method: 'PUT', url: 'http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/:id' }
+		    deactivateAd: { method: 'PUT', url: 'http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/:id' },
+		    publishAdAgain: { method: 'PUT', url: 'http://softuni-ads.azurewebsites.net/api/user/ads/publishagain/:id' }
 		}
     );
 
@@ -50,12 +51,19 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 		return resource.delete({id: id});
 	}
 
+	function publishAdAgain(id) {
+	    var token = sessionStorage.getItem('access_token');
+	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    return resource.publishAdAgain({ id: id })
+	}
+
 	return {
 		getAll: getAllAds,
 		create: createNewAd,
 		getById: getAdById,
 		edit: editAd,
         deactivateAd: deactivateAd,
-		deleteAd: deleteAd
+        deleteAd: deleteAd,
+        publishAdAgain: publishAdAgain,
 	}
 });

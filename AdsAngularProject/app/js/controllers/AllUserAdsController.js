@@ -1,4 +1,4 @@
-﻿app.controller('AllUserAdsController', function ($scope, $log,$route, userAdsData) {
+﻿app.controller('AllUserAdsController', function ($scope, $log, $route, userAdsData) {
 
 
     userAdsData.getAll()
@@ -37,7 +37,19 @@
     }
     $scope.deleteAd = function (id) {
         userAdsData.deleteAd(id)
-			.$promise
+            .$promise
+			.then(function (data) {
+			    console.log(data);
+			    $route.reload();
+			},
+			function (error) {
+			    $log.error(error);
+			});
+    }
+
+    $scope.publishAdAgain = function (id) {
+        userAdsData.publishAdAgain(id)
+            .$promise
 			.then(function (data) {
 			    console.log(data);
 			    $route.reload();
