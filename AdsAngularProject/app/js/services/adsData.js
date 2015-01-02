@@ -1,6 +1,6 @@
 app.factory('userAdsData', function ($resource, $http, authentication) {
 
-    var token = authentication.getToken.access_token;
+    //var token = authentication.getToken.access_token;
 
 	//$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
     function toJSON(obj) {
@@ -16,15 +16,16 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 	});
 
 	function getAllAds() {
-        console.log(token)
-	    console.log("tuka sym")
-		return resource.get();
+	    var token = sessionStorage.getItem('access_token');
+	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    return resource.get();
 	}
 
 	function createNewAd(ad) {
 	    var adInJsonFormat = toJSON(ad)
-	    console.log($http.defaults.headers.common['Authorization']);
-        console.log('predi zaqvkata')
+	    var token = sessionStorage.getItem('access_token');
+	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+
 	    return resource.save(adInJsonFormat);
 	}
 

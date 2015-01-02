@@ -68,6 +68,7 @@
     <Content Include="app\js\controllers\LoginController.js" />
     <Content Include="app\js\controllers\NewAdController.js" />
     <Content Include="app\js\controllers\RegisterController.js" />
+    <Content Include="app\js\directives\fileRead.js" />
     <Content Include="app\js\services\adsData.js" />
     <Content Include="app\js\services\authentication.js" />
     <Content Include="app\js\services\mainData.js" />
@@ -342,7 +343,7 @@
     <Content Include="app\templates\allUserAds.html" />
     <Content Include="app\templates\login.html" />
     <Content Include="app\templates\loginRegisterMenu.html" />
-    <Content Include="app\templates\newAd.html" />
+    <Content Include="app\templates\newUserAd.html" />
     <Content Include="app\templates\register.html" />
     <Content Include="app\templates\userNavigation.html" />
     <Content Include="scripts\web-server.js" />
@@ -381,6 +382,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </None>
   </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

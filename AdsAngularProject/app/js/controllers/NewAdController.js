@@ -1,15 +1,15 @@
-app.controller('NewAdController', function ($scope, $log, mainData, userAdsData) {
+app.controller('NewAdController', function ($scope, $log,$location, mainData, userAdsData) {
     $scope.publish = function (ad) {
+        console.log('na4aloto na zaqvkata' + ad)
         userAdsData.create(ad)
 			.$promise
 			.then(function (data) {
-				alert('Ad added: ' + data);
-				$location.path('#/user/ads');
+				console.log(data);
+				$location.path('/user/home');
 			},
 			function (error) {
 				$log.error(error);
         	});
-        console.log(ad);
 	}
     mainData.getAllCategories(function (res) {
         $scope.categories = res;
