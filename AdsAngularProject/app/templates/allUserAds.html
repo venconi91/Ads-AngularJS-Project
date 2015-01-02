@@ -64,7 +64,10 @@
                                     <div><strong>{{ad.status}}</strong></div>
 
                                     <p>
-                                        <button class="btn btn-primary" ng-click="deactivate(ad.id)">Deactivate</button>
+                                        <button class="btn btn-primary" ng-click="deactivate(ad.id)" ng-hide="showAdButtons(ad.status)">Deactivate</button>
+                                        <button class="btn btn-primary" ng-click="editAd(ad.id)" ng-show="showAdButtons(ad.status)">Edit</button>
+                                        <button class="btn btn-primary" ng-click="publishAdAgain(ad.id)" ng-show="showAdButtons(ad.status)">Publish Again</button>
+                                        <button class="btn btn-primary" ng-click="deleteAd(ad.id)" ng-show="showAdButtons(ad.status)">Delete</button>
                                     </p>
                                 </div>
                             </div>

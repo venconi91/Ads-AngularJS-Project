@@ -27,12 +27,24 @@
 			    $log.error(error);
 			});
     }
-    //$scope.categoryClicked = function (categoryId) {
-    //    $scope.currentCategory = categoryId;
-    //}
-    //$scope.currentTown = ''
-    //$scope.townClicked = function (townId) {
-    //    $scope.currentTown = townId;
-    //}
+    $scope.showAdButtons = function (adStatus) {
+        if (adStatus == 'Inactive') {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+    $scope.deleteAd = function (id) {
+        userAdsData.deleteAd(id)
+			.$promise
+			.then(function (data) {
+			    console.log(data);
+			    $route.reload();
+			},
+			function (error) {
+			    $log.error(error);
+			});
+    }
 
 });

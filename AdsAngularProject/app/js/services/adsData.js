@@ -45,6 +45,8 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 	}
 
 	function deleteAd(id) {
+	    var token = sessionStorage.getItem('access_token');
+	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 		return resource.delete({id: id});
 	}
 
@@ -54,6 +56,6 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 		getById: getAdById,
 		edit: editAd,
         deactivateAd: deactivateAd,
-		//delete: deleteAd
+		deleteAd: deleteAd
 	}
 });
