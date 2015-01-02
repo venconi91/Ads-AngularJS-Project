@@ -7,13 +7,14 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
         return angular.toJson(obj);
     }
 
-	var resource = $resource(
+    var resource = $resource(
 		'http://softuni-ads.azurewebsites.net/api/user/ads/:id', 
 		{id: '@id'}, 
-		{ update: {
-			method: 'PUT'
+		{
+		    update: { method: 'PUT' },
+		    deactivateAd: { method: 'PUT', url: 'http://softuni-ads.azurewebsites.net/api/user/ads/deactivate/:id' }
 		}
-	});
+    );
 
 	function getAllAds() {
 	    var token = sessionStorage.getItem('access_token');
@@ -27,6 +28,12 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
 	    return resource.save(adInJsonFormat);
+	}
+
+	function deactivateAd(id) {
+	    var token = sessionStorage.getItem('access_token');
+	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    return resource.deactivateAd({ id: id })
 	}
 
 	function getAdById(id) {
@@ -46,6 +53,7 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 		create: createNewAd,
 		getById: getAdById,
 		edit: editAd,
+        deactivateAd: deactivateAd,
 		//delete: deleteAd
 	}
 });
