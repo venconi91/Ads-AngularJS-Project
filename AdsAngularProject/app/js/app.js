@@ -38,8 +38,8 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
 	    //controller: 'RegisterController'
 	});
 	$routeProvider.when('/user/profile', {
-	    //templateUrl: 'templates/register.html',
-	    //controller: 'RegisterController'
+	    templateUrl: 'templates/profile.html',
+	    controller: 'ProfileController'
 	});
 	$routeProvider.otherwise({
 	    redirectTo: '/ads'

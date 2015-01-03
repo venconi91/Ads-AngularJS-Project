@@ -1,8 +1,8 @@
 app.factory('userAdsData', function ($resource, $http, authentication) {
 
     //var token = authentication.getToken.access_token;
+    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 
-	//$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
     function toJSON(obj) {
         return angular.toJson(obj);
     }
