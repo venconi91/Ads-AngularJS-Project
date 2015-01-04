@@ -1,10 +1,9 @@
 app.controller('NewAdController', function ($scope, $log,$location, mainData, userAdsData) {
     $scope.publish = function (ad) {
-        console.log('na4aloto na zaqvkata' + ad)
         userAdsData.create(ad)
 			.$promise
 			.then(function (data) {
-				console.log(data);
+				//console.log(data);
 				$location.path('/user/home');
 			},
 			function (error) {

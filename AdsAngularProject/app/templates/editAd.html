@@ -1,0 +1,60 @@
+﻿<div class="well bs-component col-md-6 col-md-offset-2">
+    <form class="form-horizontal ng-pristine ng-valid" name="editAd">
+        <fieldset>
+            <legend>Edit Ad</legend>
+            <div class="row">
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label for="adTitle" class="col-md-2 control-label">Title</label>
+                        <div class="col-md-10">
+                            <input type="text" class="form-control" id="adTitle" ng-model="ad.title" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="adText" class="col-md-2 control-label">Text</label>
+                        <div class="col-md-10">
+                            <textarea rows="4" ng-model="ad.text" required></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div id="pictureBackground">
+                        <img src="http://shop.camtecphoto.com/img/picture_placeholder.png" ng-src="{{ad.imageDataUrl}}" class="imageFullSize">
+                        <!-- ng-if="ad.imageDataUrl != null" -->
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="form-group">
+                    <label for="adImage" class="col-md-2 control-label">Image</label>
+                    <span class="col-md-2 pull-pight">
+                        <input type="file" fileread="ad.imageDataUrl " ng-model="asdf"/>
+                    </span>
+                    <button class="btn btn-info col-md-offset-3" ng-click="rejectPicture()">Reject Picture</button>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Category</label>
+
+                    <select ng-model="ad.categoryId" ng-options="category.id as category.name for category in categories">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label class="col-md-2 control-label">Town</label>
+                    <select ng-model="ad.townId" ng-options="town.id as town.name for town in towns" ng-selected="town.id == 'Varna '">
+                        <option value=""></option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-2">
+                        <button type="submit" class="btn btn-primary" ng-click="edit(ad)" ng-disabled="editAd.$pristine || editAd.$invalid">Edit</button>
+                        <a href="#/user/ads">
+                            <button class="btn">Cancel</button>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

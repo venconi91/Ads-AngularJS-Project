@@ -1,4 +1,4 @@
-﻿app.controller('AllUserAdsController', function ($scope, $log, $route, userAdsData) {
+﻿app.controller('AllUserAdsController', function ($scope, $log, $route,$location, userAdsData) {
 
 
     userAdsData.getAll()
@@ -57,6 +57,11 @@
 			function (error) {
 			    $log.error(error);
 			});
+    }
+
+    $scope.editAd = function (id) {
+        //console.log(id)
+        $location.path('/user/ads/' + id);
     }
 
 });

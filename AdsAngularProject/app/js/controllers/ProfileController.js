@@ -37,8 +37,7 @@
         userProfile.changePassword(password)
         .$promise
 			.then(function (data) {
-			    alert('ba4ka');
-                console.log(data)
+                //console.log(data)
 			    $route.reload();
 			},
 			function (error) {

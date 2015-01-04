@@ -33,9 +33,9 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
 	    templateUrl: 'templates/allUserAds.html',
 	    controller: 'AllUserAdsController'
 	});
-	$routeProvider.when('/user/ads/delete/:id', {
-	    //templateUrl: 'templates/register.html',
-	    //controller: 'RegisterController'
+	$routeProvider.when('/user/ads/:id', {
+	    templateUrl: 'templates/editAd.html',
+	    controller: 'EditAdController'
 	});
 	$routeProvider.when('/user/profile', {
 	    templateUrl: 'templates/profile.html',

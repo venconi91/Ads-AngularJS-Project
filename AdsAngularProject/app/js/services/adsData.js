@@ -38,6 +38,8 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 	}
 
 	function getAdById(id) {
+	    var token = sessionStorage.getItem('access_token');
+	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 		return resource.get({id: id});
 	}
 
