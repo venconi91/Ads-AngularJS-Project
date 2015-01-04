@@ -1,0 +1,53 @@
+﻿<div class="well bs-component col-md-5 col-md-offset-2">
+    <form class="form-horizontal ng-pristine ng-valid" name="newAdForm">
+        <fieldset>
+            <legend>Confirm Deleting Ad?</legend>
+            <div class="row">
+                <div class="col-md-9">
+                    <h3>{{ad.title}}</h3>
+                </div>
+                <div class="col-md-3">
+                    <span class="pull-right">{{ad.date | date: 'd-MMM-yyyy'}}</span>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div id="pictureBackground">
+                        <img src="http://shop.camtecphoto.com/img/picture_placeholder.png" ng-src="{{ad.imageDataUrl}}" class="imageFullSize">
+                    </div>
+                </div>
+                <div class="col-md-9">
+                    <div class="form-group">
+                        <label for="adText" class="col-md-2 control-label">Text:</label>
+                        <div class="col-md-10">
+                            {{ad.text}}
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="ad.categoryName != null">
+                        <label for="categoryName" class="col-md-2 control-label">Category:</label>
+                        <div class="col-md-10">
+                            {{ad.categoryName}}
+                        </div>
+                    </div>
+                    <div class="form-group" ng-show="ad.townName != null">
+                        <label for="adText" class="col-md-2 control-label">Town:</label>
+                        <div class="col-md-10">
+                            {{ad.townName}}
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group">
+                    <div class="col-lg-10 col-lg-offset-3">
+                        <button type="submit" ng-click="deleteAdConfirmed()" class="btn btn-primary">Delete</button>
+                        <a href="#/user/ads"><button class="btn btn-small">Cancel</button></a>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+</div>

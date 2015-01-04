@@ -20,7 +20,7 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
 	    templateUrl: 'templates/register.html',
 	    controller: 'RegisterController'
 	});
-    // za korekciq nadolu wsi4ko
+    // 
 	$routeProvider.when('/user/home', {
 	    templateUrl: 'templates/allAds.html',
 	    controller: 'AllAdsController'
@@ -40,6 +40,10 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
 	$routeProvider.when('/user/profile', {
 	    templateUrl: 'templates/profile.html',
 	    controller: 'ProfileController'
+	});
+	$routeProvider.when('/user/ads/delete/:id', {
+	    templateUrl: 'templates/confirmDeleteAd.html',
+	    controller: 'ConfirmDeleteAdController'
 	});
 	$routeProvider.otherwise({
 	    redirectTo: '/ads'

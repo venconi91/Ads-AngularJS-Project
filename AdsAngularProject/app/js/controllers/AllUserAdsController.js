@@ -1,4 +1,4 @@
-﻿app.controller('AllUserAdsController', function ($scope, $log, $route,$location, userAdsData) {
+﻿app.controller('AllUserAdsController', function ($scope, $log, $route, $location, userAdsData) {
 
 
     userAdsData.getAll()
@@ -36,15 +36,16 @@
         }
     }
     $scope.deleteAd = function (id) {
-        userAdsData.deleteAd(id)
-            .$promise
-			.then(function (data) {
-			    console.log(data);
-			    $route.reload();
-			},
-			function (error) {
-			    $log.error(error);
-			});
+        //userAdsData.deleteAd(id)
+        //    .$promise
+        //	.then(function (data) {
+        //	    console.log(data);
+        //	    $route.reload();
+        //	},
+        //	function (error) {
+        //	    $log.error(error);
+        //	});
+        $location.path('/user/ads/delete/' + id)
     }
 
     $scope.publishAdAgain = function (id) {
