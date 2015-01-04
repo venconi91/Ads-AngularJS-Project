@@ -14,23 +14,31 @@
 
     mainData.getAllTowns(function (res) {
         $scope.towns = res;
-        //console.log($scope.towns)
-
     })
 
     $scope.updateProfile = function (profile) {
-        //console.log(profile)
         var profileObj = {
             "name": profile.name,
             "email": profile.email,
             "phoneNumber": profile.phoneNumber,
             "townId": profile.townId
         }
-        //console.log(profileObj)
         userProfile.editUserProfile(profileObj)
         .$promise
 			.then(function (data) {
-			    //console.log(data);
+			    $route.reload();
+			},
+			function (error) {
+			    $log.error(error);
+			});
+    }
+
+    $scope.changePass = function (password) {
+        userProfile.changePassword(password)
+        .$promise
+			.then(function (data) {
+			    alert('ba4ka');
+                console.log(data)
 			    $route.reload();
 			},
 			function (error) {
