@@ -14,4 +14,9 @@
             $scope.showUserNav = false;
         }
     });
+
+    $scope.logout = function () {
+        sessionStorage.clear();
+        location.path('/ads');
+    }
 });

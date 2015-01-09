@@ -3,7 +3,7 @@
         <div class="col-md-9">
             <div class="jumbotron">
                 <ul>
-                    <li ng-repeat="ad in allAds.ads | filter: {'categoryId' : currentCategory} | filter: {'townId' : currentTown}" class="well">
+                    <li ng-repeat="ad in allAds.ads " class="well"> <!-- | filter: {'categoryId' : currentCategory} | filter: {'townId' : currentTown} -->
                         <div class="row">
                             <div class="col-md-9">
                                 <h3>{{ad.title}}</h3>
@@ -73,5 +73,17 @@
             </div>
         </div>
     </div>
+    <div class="row">
+        <ul>
+            <!--<li ng-repeat="page in getNumberOfPages(numberOfPages) track by $index">
+                <a href="#" ng-click="newPageClicked($index + 1)">{{$index + 1}}</a>
+            </li>-->
+            <li>
+                <button ng-click="prev()">Previous</button>
+                {{currentPage}} 
+                <button ng-click="next()">Next</button> 
+            </li>
+        </ul>
 
+    </div>
 </div>

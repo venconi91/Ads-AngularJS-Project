@@ -36,15 +36,6 @@
         }
     }
     $scope.deleteAd = function (id) {
-        //userAdsData.deleteAd(id)
-        //    .$promise
-        //	.then(function (data) {
-        //	    console.log(data);
-        //	    $route.reload();
-        //	},
-        //	function (error) {
-        //	    $log.error(error);
-        //	});
         $location.path('/user/ads/delete/' + id)
     }
 
@@ -52,7 +43,7 @@
         userAdsData.publishAdAgain(id)
             .$promise
 			.then(function (data) {
-			    console.log(data);
+			    //console.log(data);
 			    $route.reload();
 			},
 			function (error) {

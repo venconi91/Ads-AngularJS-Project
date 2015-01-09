@@ -22,7 +22,7 @@
     }
 
     // LOGIN
-    function login(success, loginData) {
+    function login(loginData,success, error) {
         $http({
             method: 'POST',
             url: 'http://softuni-ads.azurewebsites.net/api/user/login',
@@ -32,6 +32,7 @@
             success(data)
         }).error(function (data) {
             $log.warn(data)
+            error(data)
         })
     }
     
