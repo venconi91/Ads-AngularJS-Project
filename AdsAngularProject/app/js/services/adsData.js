@@ -8,7 +8,8 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
     }
 
     function setToken() {
-
+        var token = sessionStorage.getItem('access_token');
+        $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
     }
 
     var resource = $resource(
@@ -22,44 +23,48 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
     );
 
 	function getAllAds() {
-	    var token = sessionStorage.getItem('access_token');
-	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    //var token = sessionStorage.getItem('access_token');
+	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    setToken();
 	    return resource.get();
 	}
 
 	function createNewAd(ad) {
 	    var adInJsonFormat = toJSON(ad)
-	    var token = sessionStorage.getItem('access_token');
-	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
-
+	    //var token = sessionStorage.getItem('access_token');
+	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    setToken();
 	    return resource.save(adInJsonFormat);
 	}
 
 	function deactivateAd(id) {
-	    var token = sessionStorage.getItem('access_token');
-	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    //var token = sessionStorage.getItem('access_token');
+	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    setToken();
 	    return resource.deactivateAd({ id: id })
 	}
 
 	function getAdById(id) {
-	    var token = sessionStorage.getItem('access_token');
-	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    //var token = sessionStorage.getItem('access_token');
+	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    setToken();
 		return resource.get({id: id});
 	}
 
 	function editAd(id, ad) {
+	    setToken()
 		return resource.update({id: id}, ad);
 	}
 
 	function deleteAd(id) {
-	    var token = sessionStorage.getItem('access_token');
-	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    //var token = sessionStorage.getItem('access_token');
+	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    setToken();
 		return resource.delete({id: id});
 	}
 
 	function publishAdAgain(id) {
-	    var token = sessionStorage.getItem('access_token');
-	    $http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
+	    setToken();
 	    return resource.publishAdAgain({ id: id })
 	}
 

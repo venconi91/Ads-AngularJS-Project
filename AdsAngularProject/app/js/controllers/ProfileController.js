@@ -1,5 +1,7 @@
-﻿app.controller('ProfileController', function ($scope, $route, $log, userProfile, mainData) {
+﻿app.controller('ProfileController', function ($scope, $route, $log,$timeout, userProfile, mainData) {
 
+    $scope.showSuccessMessage = false;
+    $scope.showEditPasswordError = false;
 
     userProfile.getUserProfile()
 			.$promise
@@ -26,7 +28,7 @@
         userProfile.editUserProfile(profileObj)
         .$promise
 			.then(function (data) {
-			    $route.reload();
+			    showSuccessMessage();
 			},
 			function (error) {
 			    $log.error(error);
@@ -38,10 +40,27 @@
         .$promise
 			.then(function (data) {
                 //console.log(data)
-			    $route.reload();
+			    showSuccessMessage();
 			},
 			function (error) {
 			    $log.error(error);
+			    $scope.showEditPasswordError = true;
+			    $timeout(function () {
+			        $scope.showEditPasswordError = false;
+			        $route.reload();
+			    }, 3000);
 			});
+    }
+
+    function showSuccessMessage() {
+        $scope.showSuccessMessage = true;
+        $timeout(function () {
+            $scope.showSuccessMessage = false;
+            $route.reload();
+        }, 3000);
+    }
+
+    $scope.reload = function () {
+        $route.reload();
     }
 });
