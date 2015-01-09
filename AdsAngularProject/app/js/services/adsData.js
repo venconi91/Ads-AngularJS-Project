@@ -7,6 +7,10 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
         return angular.toJson(obj);
     }
 
+    function setToken() {
+
+    }
+
     var resource = $resource(
 		'http://softuni-ads.azurewebsites.net/api/user/ads/:id', 
 		{id: '@id'}, 
@@ -63,7 +67,7 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
 		getAll: getAllAds,
 		create: createNewAd,
 		getById: getAdById,
-		edit: editAd,
+		editAd: editAd,
         deactivateAd: deactivateAd,
         deleteAd: deleteAd,
         publishAdAgain: publishAdAgain,

@@ -17,7 +17,7 @@ app.controller('NewAdController', function ($scope, $log,$location, mainData, us
         $scope.towns = res;
     })
 
-    $scope.rejectPicture = function () {
-        $scope.ad.imageDataUrl = null;
-    }
+    //$scope.rejectPicture = function () {
+    //    $scope.ad.imageDataUrl = null;
+    //}
 });

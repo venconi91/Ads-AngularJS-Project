@@ -1,9 +1,12 @@
-﻿app.controller('RegisterController', function ($scope, authentication) {
+﻿app.controller('RegisterController', function ($scope, $location, authentication, mainData) {
+
     $scope.register = function (user) {
-        
-        authentication.register(scx, user)
+        authentication.register(success, user)
     }
-    function scx(data) {
-        alert(data);
+    function success(data) {
+        $location.path('/user/home')
     }
+    mainData.getAllTowns(function (res) {
+        $scope.towns = res;
+    })
 })
