@@ -5,14 +5,15 @@ app.controller('AllAdsController', function ($scope, $log, $location, mainData, 
     $scope.pageChanged = function () {
         getAdsWithPaging();
     };
-
+    $scope.adsPerPage = 3;
     getAdsWithPaging();
 
     $scope.getNumberOfPages = function (num) {
         return new Array(num);
     }
+
     function getAdsWithPaging() {
-        mainData.getAdsWithPaging($scope.currentCategory, $scope.currentTown, $scope.currentPage)
+        mainData.getAdsWithPaging($scope.currentCategory, $scope.currentTown, $scope.currentPage, $scope.adsPerPage)
         .$promise
         .then(function (data) {
             $scope.totalItems = data.numItems;
@@ -23,7 +24,7 @@ app.controller('AllAdsController', function ($scope, $log, $location, mainData, 
         })
 
     }
-
+    
     mainData.getAllCategories(function (res) {
         $scope.categories = res;
     })

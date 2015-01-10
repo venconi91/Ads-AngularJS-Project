@@ -23,30 +23,31 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
     );
 
 	function getAllAds() {
-	    //var token = sessionStorage.getItem('access_token');
-	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 	    setToken();
 	    return resource.get();
+	}
+	function getAllAdsWithStatusFilter(status,startPage,pageSize) {
+	    setToken();
+	    return $resource('http://softuni-ads.azurewebsites.net' + '/api/user/ads?Status=:status&StartPage=:startPage',
+        {
+            status: status,
+            startPage: startPage,
+            pagesize: pageSize
+        }).get();
 	}
 
 	function createNewAd(ad) {
 	    var adInJsonFormat = toJSON(ad)
-	    //var token = sessionStorage.getItem('access_token');
-	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 	    setToken();
 	    return resource.save(adInJsonFormat);
 	}
 
 	function deactivateAd(id) {
-	    //var token = sessionStorage.getItem('access_token');
-	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 	    setToken();
 	    return resource.deactivateAd({ id: id })
 	}
 
 	function getAdById(id) {
-	    //var token = sessionStorage.getItem('access_token');
-	    //$http.defaults.headers.common['Authorization'] = 'Bearer ' + token;
 	    setToken();
 		return resource.get({id: id});
 	}
@@ -76,5 +77,6 @@ app.factory('userAdsData', function ($resource, $http, authentication) {
         deactivateAd: deactivateAd,
         deleteAd: deleteAd,
         publishAdAgain: publishAdAgain,
+        getAllAdsWithStatusFilter: getAllAdsWithStatusFilter
 	}
 });

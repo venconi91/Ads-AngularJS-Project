@@ -1,26 +1,26 @@
 ﻿<div class="container">
     <div class="row">
         <div class="col-md-3">
-            
+
             <div class="panel panel-primary">
                 <div class="panel-heading">
-                        <h3 class="panel-title">My Ads</h3>
-                    </div>
+                    <h3 class="panel-title">My Ads</h3>
+                </div>
                 <div class="panel-body">
                     <ul>
                         <li>
-                            <a ng-click="myAdsFilter('')">All</a>
+                            <a ng-click="myAdsFilter('')" ng-class="{'activeClass': ''==currentStatus}">All</a>
                         </li>
                         <li>
-                            <a ng-click="myAdsFilter('Published')">Published</a>
+                            <a ng-click="myAdsFilter('Published')" ng-class="{'activeClass': 'Published'==currentStatus}">Published</a>
                         </li>
                         <li>
-                            <a ng-click="myAdsFilter('WaitingApproval')">Waiting Approval</a>
+                            <a ng-click="myAdsFilter('WaitingApproval')" ng-class="{'activeClass': 'WaitingApproval'==currentStatus}">Waiting Approval</a>
                         </li>
                         <li>
-                            <a ng-click="myAdsFilter('Inactive')">Inactive</a>
+                            <a ng-click="myAdsFilter('Inactive')" ng-class="{'activeClass': 'Inactive'==currentStatus}">Inactive</a>
                         </li>
-                        
+
                     </ul>
                 </div>
             </div>
@@ -30,7 +30,8 @@
         <div class="col-md-9">
             <div class="jumbotron">
                 <ul>
-                    <li ng-repeat="ad in allAds | filter: {'status' : currentStatus}" class="well">
+                    <li ng-repeat="ad in allAds " class="well">
+                        <!-- | filter: {'status' : currentStatus}-->
                         <div class="row">
                             <div class="col-md-9">
                                 <div class="row">
@@ -76,6 +77,10 @@
                 </ul>
             </div>
         </div>
-
+    </div>
+    <div class="row">
+        <div>
+            <pagination total-items="totalItems" items-per-page="adsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+        </div>
     </div>
 </div>

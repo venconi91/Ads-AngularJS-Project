@@ -30,24 +30,13 @@
             })
     }
 
-    //function getAdsWithPaging(success) {
-        
-    //    $http.get(urlFilter) //  + categoryId + '&townId='+townId+'&pagesize=3&startpage=' + startPage
-    //        .success(function (data, status, headers, config) {
-    //            success(data);
-    //        })
-    //        .error(function (data, status, headers, config) {
-    //            $log.warn('data')
-    //        })
-    //}
-
-    function getAdsWithPaging(categoryId, townId, startPage) {
+    function getAdsWithPaging(categoryId, townId, startPage, adsPerPage) {
         return $resource('http://softuni-ads.azurewebsites.net' + '/api/Ads?CategoryId=:categoryId&TownId=:townId&StartPage=:startPage',
         {
             categoryId: categoryId,
             townId: townId,
             startPage: startPage,
-            pagesize:3
+            pagesize: adsPerPage
         }).get();
     }
 
