@@ -1,7 +1,13 @@
 app.controller('AllAdsController', function ($scope, $log, $location, mainData, userAdsData) {
+    
+    $scope.currentPage = 1;
+
+    $scope.pageChanged = function () {
+        getAdsWithPaging();
+    };
 
     getAdsWithPaging();
-    
+
     $scope.getNumberOfPages = function (num) {
         return new Array(num);
     }
@@ -9,14 +15,15 @@ app.controller('AllAdsController', function ($scope, $log, $location, mainData, 
         mainData.getAdsWithPaging($scope.currentCategory, $scope.currentTown, $scope.currentPage)
         .$promise
         .then(function (data) {
+            $scope.totalItems = data.numItems;
             $scope.allAds = data;
-            $scope.numberOfPages = data.numPages
+            $scope.numberOfPages = data.numPages;
         }, function (error) {
             $log.error(error);
         })
-        
+
     }
-    
+
     mainData.getAllCategories(function (res) {
         $scope.categories = res;
     })
@@ -35,18 +42,5 @@ app.controller('AllAdsController', function ($scope, $log, $location, mainData, 
         getAdsWithPaging();
     }
 
-    $scope.currentPage = 1;
-    //$scope.newPageClicked = function (pageNum) {
-    //    $scope.currentPage = pageNum;
-    //    getAdsWithPaging();
-    //}
-    $scope.prev = function () {
-        $scope.currentPage--;
-        getAdsWithPaging();
-    }
-    $scope.next = function () {
-        $scope.currentPage++;
-        getAdsWithPaging();
-    }
 });
 

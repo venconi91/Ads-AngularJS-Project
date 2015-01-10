@@ -1,4 +1,4 @@
-var app = angular.module('softUniApp', ['ngResource', 'ngRoute'])
+var app = angular.module('softUniApp', ['ngResource', 'ngRoute', 'ui.bootstrap'])
 .config(function ($routeProvider, $locationProvider) {
 	$routeProvider.when('/newAd', {
 		//templateUrl: 'templates/newAd.html',
