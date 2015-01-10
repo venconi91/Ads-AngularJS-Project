@@ -6,25 +6,11 @@
     $scope.pageChanged = function () {
         getUserAdsWithFilterStatus();
     };
-    //
-    //$scope.totalItems = data.numItems;
-    //$scope.allAds = data;
-    //$scope.numberOfPages = data.numPages;
-    //userAdsData.getAll()
-	//		.$promise
-	//		.then(function (data) {
-	//		    //console.log(data);
-	//		    $scope.allAds = data.ads;
-	//		},
-	//		function (error) {
-	//		    $log.error(error);
-	//		});
-
+    
     $scope.currentStatus = '';
     $scope.adsPerPage = 3;
 
     $scope.myAdsFilter = function (myAdsFilter) {
-        //console.log(myAdsFilter)
         $scope.currentStatus = myAdsFilter;
         getUserAdsWithFilterStatus();
     }
@@ -34,7 +20,6 @@
         userAdsData.getAllAdsWithStatusFilter($scope.currentStatus, $scope.currentPage, $scope.adsPerPage)
 			.$promise
 			.then(function (data) {
-			    //console.log(data);
 			    $scope.allAds = data.ads;
 			    $scope.totalItems = data.numItems;
 			    $scope.numberOfPages = data.numPages;
@@ -48,7 +33,6 @@
         userAdsData.deactivateAd(id)
 			.$promise
 			.then(function (data) {
-			    //console.log(data);
 			    $route.reload();
 			},
 			function (error) {
@@ -71,7 +55,6 @@
         userAdsData.publishAdAgain(id)
             .$promise
 			.then(function (data) {
-			    //console.log(data);
 			    $route.reload();
 			},
 			function (error) {
@@ -80,7 +63,6 @@
     }
 
     $scope.editAd = function (id) {
-        //console.log(id)
         $location.path('/user/ads/' + id);
     }
 

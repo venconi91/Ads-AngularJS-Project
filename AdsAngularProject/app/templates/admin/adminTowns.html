@@ -1,0 +1,26 @@
+﻿<div class="well bs-component col-md-5 col-md-offset-2">
+    <div class="row">
+        <div class="col-md-8">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Town</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="town in towns">
+                        <td>{{town.username}}</td>
+                        <td>
+                            <button class="btn btn-small" ng-click="edit(town.id, town.username)">Edit</button>
+                            <button class="btn btn-small" ng-click="delete(town.id, town.username)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row">
+        <button class="btn btn-primary" ng-click="newTown()">Create Town</button>
+    </div>
+</div>

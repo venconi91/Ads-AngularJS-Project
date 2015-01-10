@@ -45,6 +45,46 @@ var app = angular.module('softUniApp', ['ngResource', 'ngRoute', 'ui.bootstrap']
 	    templateUrl: 'templates/confirmDeleteAd.html',
 	    controller: 'ConfirmDeleteAdController'
 	});
+	$routeProvider.when('/admin/ads', {
+	    templateUrl: 'templates/allUserAds.html',
+	    controller: 'AllUserAdsController'
+	});
+	$routeProvider.when('/admin/users', {
+	    templateUrl: 'templates/admin/adminUsers.html',
+	    controller: 'AdminUsersController'
+	});
+	$routeProvider.when('/admin/categories', {
+	    templateUrl: 'templates/admin/adminCategories.html',
+	    controller: 'AdminCategoriesController'
+	});
+    //
+	$routeProvider.when('/admin/categories/delete/:id', {
+	    //templateUrl: 'templates/admin/adminCategories.html',
+	    //controller: 'AdminCategoriesController'
+	});
+	$routeProvider.when('/admin/categories/create', {
+	    //templateUrl: 'templates/admin/adminCategories.html',
+	    //controller: 'AdminCategoriesController'
+	});
+    // admin towns
+	$routeProvider.when('/admin/towns', {
+	    templateUrl: 'templates/admin/adminTowns.html',
+	    controller: 'AdminTownsController'
+	});
+	$routeProvider.when('/admin/towns/create', {
+	    templateUrl: 'templates/admin/createTown.html',
+	    controller: 'AdminTownsController'
+	});
+	$routeProvider.when('/admin/towns/edit/:id', {
+	    templateUrl: 'templates/admin/towns/editTown.html',
+	    controller: 'AdminTownsController'
+	});
+	$routeProvider.when('/admin/towns/delete/:id', {
+	    templateUrl: 'templates/admin/confirmDeleteTown.html',
+	    controller: 'ConfirmDeleteTownController'
+	});
+	
+	
 	$routeProvider.otherwise({
 	    redirectTo: '/ads'
 	});

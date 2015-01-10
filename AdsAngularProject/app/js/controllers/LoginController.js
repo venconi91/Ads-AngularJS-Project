@@ -6,7 +6,7 @@
     }
     function getLoginResponse(data) {
         //console.log(data);
-        $location.path('/user/home')
+        
     }
     function loginError() {
         $scope.showLoginError = true;

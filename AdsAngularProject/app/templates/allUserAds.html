@@ -29,7 +29,10 @@
 
         <div class="col-md-9">
             <div class="jumbotron">
-                <ul>
+                <div ng-hide="allAds">
+                    No results!
+                </div>
+                <ul ng-show="allAds">
                     <li ng-repeat="ad in allAds " class="well">
                         <!-- | filter: {'status' : currentStatus}-->
                         <div class="row">

@@ -2,7 +2,12 @@
     <div class="row">
         <div class="col-md-9">
             <div class="jumbotron">
-                <ul>
+                <div class="row">
+                    <div ng-hide="allAds.ads" ng-cloak>
+                        No Results!
+                    </div>
+                </div>
+                <ul ng-show="allAds">
                     <li ng-repeat="ad in allAds.ads " class="well">
                         <!-- | filter: {'categoryId' : currentCategory} | filter: {'townId' : currentTown} -->
                         <div class="row">
@@ -45,8 +50,9 @@
                             <li>
                                 <a href ng-click="categoryClicked('')" ng-class="{'activeClass': ''==currentCategory}">All Categories</a>
                             </li>
-                            <li ng-repeat="category in categories" >
-                                <a href ng-click="categoryClicked(category.id)" ng-class="{'activeClass': category.id==currentCategory}">{{category.name}} </a>       <!-- tuka za category-->
+                            <li ng-repeat="category in categories">
+                                <a href ng-click="categoryClicked(category.id)" ng-class="{'activeClass': category.id==currentCategory}">{{category.name}} </a>
+                                <!-- tuka za category-->
                             </li>
                         </ul>
                         <p>{{currentCategory}}</p>
@@ -74,9 +80,11 @@
             </div>
         </div>
     </div>
-    
+
     <div class="row">
-        <div><pagination total-items="totalItems" items-per-page="adsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination></div>
+        <div>
+            <pagination total-items="totalItems" items-per-page="adsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+        </div>
 
     </div>
 </div>

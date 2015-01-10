@@ -1,3 +1,11 @@
+<div class="row" ng-show="showSuccessMessage">
+    <div class="col-md-5 col-md-offset-2">
+        <div class="alert alert-success">
+            <a class="close" data-dismiss="alert" ng-click="reload()">&times;</a>
+            <strong>Success!</strong> Advertisement submitted for approval. Once approved, it will be published.
+        </div>
+    </div>
+</div>
 <div class="well bs-component col-md-5 col-md-offset-2">
     <form class="form-horizontal ng-pristine ng-valid" name="newAdForm">
         <fieldset>
