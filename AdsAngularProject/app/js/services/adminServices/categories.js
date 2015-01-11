@@ -27,7 +27,16 @@
         return resource.get()
     }
 
+    function getCategoriesWithPaging(startPage, pageSize) {
+        setToken();
+        return $resource('http://softuni-ads.azurewebsites.net' + '/api/admin/categories?pagesize=:pageSize&startpage=:startPage',
+        {
+            startPage: startPage,
+            pageSize: pageSize
+        }).get();
+    }
+
     return {
-        getCategories: getCategories,
+        getCategoriesWithPaging: getCategoriesWithPaging,
     }
 });

@@ -21,9 +21,13 @@
 		}
     );
 
-    function getTowns() {
+    function getTownsWithPaging(startPage,pageSize) {
         setToken();
-        return resource.get()
+        return $resource('http://softuni-ads.azurewebsites.net' + '/api/admin/towns?pagesize=:pageSize&startpage=:startPage',
+        {
+            startPage: startPage,
+            pageSize: pageSize
+        }).get();
     }
 
     function deleteTown(id) {
@@ -43,7 +47,7 @@
     }
 
     return {
-        getTowns: getTowns,
+        getTownsWithPaging: getTownsWithPaging,
         deleteTown: deleteTown,
         editTown: editTown,
         createNewTown: createNewTown

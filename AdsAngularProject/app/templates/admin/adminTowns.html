@@ -21,6 +21,12 @@
         </div>
     </div>
     <div class="row">
+        <div>
+            <pagination total-items="totalItems" items-per-page="adsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+        </div>
+
+    </div>
+    <div class="row">
         <button class="btn btn-primary" ng-click="newTown()">Create Town</button>
     </div>
 </div>

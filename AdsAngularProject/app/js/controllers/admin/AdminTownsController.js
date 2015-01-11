@@ -1,16 +1,25 @@
 ﻿app.controller('AdminTownsController', function ($scope, $location, towns) {
+    $scope.currentPage = 1;
 
+    $scope.pageChanged = function () {
+        getTowns();
+    };
+    $scope.adsPerPage = 3;
+
+    //
     getTowns();
 
     var townId;
     
 
     function getTowns() {
-        towns.getTowns()
+        towns.getTownsWithPaging($scope.currentPage, $scope.townsPerPage)
 			.$promise
 			.then(function (data) {
-			    console.log(data);
+			    //console.log(data);
 			    $scope.towns = data.towns;
+			    $scope.totalItems = data.numItems;
+			    $scope.numberOfPages = data.numPages;
 			},
 			function (error) {
 			    $log.error(error);

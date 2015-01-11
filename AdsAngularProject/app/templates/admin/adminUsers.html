@@ -1,1 +1,36 @@
-﻿
+﻿<div class="well bs-component col-md-5 col-md-offset-2">
+    <div class="row">
+        <div class="col-md-12">
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Username</th>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Phone</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="user in users">
+                        <td>{{user.username}}</td>
+                        <td>{{user.name}}</td>
+                        <td>{{user.email}}</td>
+                        <td>{{user.phone}}</td>
+                        <td>
+                            <button class="btn btn-small" ng-click="edit(user.id, user.username)">Edit</button>
+                            <button class="btn btn-small" ng-click="delete(user.id, user.username)">Delete</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <!--<div class="row">
+        <div>
+            <pagination total-items="totalItems" items-per-page="adsPerPage" ng-model="currentPage" ng-change="pageChanged()"></pagination>
+        </div>
+
+    </div>-->
+    
+</div>
